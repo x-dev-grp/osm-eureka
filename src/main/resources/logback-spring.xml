@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    
+    <!-- Pretty, colorized console appender for human-friendly logs -->
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%highlight(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %-5level %cyan(%logger{36}) - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- Application specific loggers -->
+    <logger name="com.osm.discoveryserver" level="INFO" additivity="false">
+        <appender-ref ref="Console"/>
+    </logger>
+    
+    <!-- Eureka server loggers with optimized levels -->
+    <logger name="com.netflix.eureka" level="INFO" additivity="false">
+        <appender-ref ref="Console"/>
+    </logger>
+    
+    <logger name="com.netflix.discovery" level="INFO" additivity="false">
+        <appender-ref ref="Console"/>
+    </logger>
+    
+    <logger name="org.springframework.web" level="INFO" additivity="false">
+        <appender-ref ref="Console"/>
+    </logger>
+    
+    <!-- Root logger configuration -->
+    <root level="INFO">
+        <appender-ref ref="Console"/>
+    </root>
+    
+</configuration> 
